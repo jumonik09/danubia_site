@@ -1,58 +1,264 @@
 /* Composição de contato: um painel, três caminhos claros. */
-body{min-height:100svh;display:flex;flex-direction:column}
-header{width:100%}main{flex:1}
-.contact-heading{padding-top:48px;padding-bottom:40px}
-.contact-heading .eyebrow{font-size:12px;letter-spacing:2px;color:#695447;margin-bottom:18px}
-.contact-heading h1{font-size:clamp(52px,5.8vw,72px)}
-.contact-heading .intro{margin-top:18px;color:var(--muted);font-size:14px}
-.contact-layout{display:grid;grid-template-columns:1.1fr 1fr;column-gap:64px;row-gap:0;max-width:1056px;width:calc(100% - 64px);padding:48px;margin:0 auto 64px;background:#efe4db;border-radius:32px}
-.contact-card{min-width:0;display:flex;flex-direction:column;align-items:flex-start}
-.location-card{grid-row:span 2;justify-content:space-between;padding-right:40px;border-right:1px solid #d9c7b9;gap:36px}
-.location-card h2.eyebrow{font:500 10px/1.8 Manrope,Arial,sans-serif;letter-spacing:1.8px;margin:0 0 28px;color:#786253}
-.contact-address{display:block;font:400 clamp(32px,3.6vw,44px)/1.2 'Cormorant Garamond',Georgia,serif;letter-spacing:-.6px;color:var(--ink);transition:color .2s}
-.contact-address:hover{color:#826653}
-.location-card address p{font:14px/1.8 Manrope,Arial,sans-serif;margin:20px 0 0;color:#78675a}
-.location-card .map-link{display:inline-flex;align-items:center;min-height:44px;border-bottom:1px solid #bda28f;font-size:12px}
-.location-card .map-link:hover{color:#826653}
-.channel-heading{display:flex;align-items:center;gap:14px;max-width:100%}
-.channel-mark{display:grid;place-items:center;flex-shrink:0;color:#715746}
-.channel-icon{display:block;width:25px;height:25px;flex-shrink:0}
-.contact-card .channel-heading h2{font-size:clamp(32px,3vw,38px);letter-spacing:-.5px;line-height:1.15}
-.booking-card{padding-bottom:28px}
-.booking-card .button{margin-top:24px;min-height:50px;font-size:13px;padding-inline:26px}
-.phone-link{display:inline-flex;align-items:center;min-height:44px;margin-top:8px;font-size:14px;letter-spacing:.4px;color:#78675a}
-.phone-link:hover{color:var(--ink)}
-.instagram-card{padding-top:28px;border-top:1px solid #d9c7b9}
-.instagram-link{display:inline-flex;align-items:center;min-height:44px;margin-top:12px;font-size:14px;color:#695447;border-bottom:1px solid #bda28f;overflow-wrap:anywhere}
-.instagram-link:hover{color:var(--ink);border-color:var(--ink)}
-.contact-card a{max-width:100%}
-@media(min-width:601px) and (max-width:900px){
- .contact-heading{padding-top:36px}
- .contact-layout{width:calc(100% - 56px);padding:36px;column-gap:32px}
- .location-card{padding-right:28px}
- .contact-address{font-size:36px}
- .contact-card .channel-heading h2{font-size:33px}
- .instagram-link{font-size:12px}
+body {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
 }
-@media(max-width:600px){
- .contact-heading{padding-top:28px;padding-bottom:30px}
- .contact-heading h1{font-size:clamp(47px,10vw,58px)}
- .contact-heading .eyebrow{font-size:12px;letter-spacing:1.5px}
- .contact-layout{width:calc(100% - 44px);grid-template-columns:minmax(0,1fr);padding:30px 26px;border-radius:28px;margin-bottom:40px}
- .location-card{grid-row:auto;padding:0 0 30px;border-right:0;border-bottom:1px solid #d9c7b9;gap:22px}
- .location-card h2.eyebrow{margin-bottom:20px}
- .contact-address{font-size:36px}
- .location-card address p{margin-top:14px}
- .booking-card{padding-top:30px;padding-bottom:24px}
- .instagram-card{padding-top:28px}
- .contact-card .channel-heading h2{font-size:34px}
- .booking-card .button{margin-top:22px}
- .instagram-link{font-size:13px}
+header {
+  width: 100%;
 }
-@media(max-width:360px){
- .contact-layout{width:calc(100% - 36px);padding:28px 22px}
- .contact-address{font-size:32px}
- .contact-card .channel-heading h2{font-size:32px}
- .instagram-link{font-size:12px}
+main {
+  flex: 1;
 }
-@media(prefers-reduced-motion:reduce){.contact-address{transition:none}}
+.contact-heading {
+  padding-top: 48px;
+  padding-bottom: 40px;
+}
+.contact-heading .eyebrow {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #695447;
+  margin-bottom: 18px;
+}
+.contact-heading h1 {
+  font-size: clamp(52px, 5.8vw, 72px);
+}
+.contact-heading .intro {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  column-gap: 64px;
+  row-gap: 0;
+  max-width: 1056px;
+  width: calc(100% - 64px);
+  padding: 48px;
+  margin: 0 auto 64px;
+  background: #efe4db;
+  border-radius: 32px;
+}
+.contact-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.location-card {
+  grid-row: span 2;
+  justify-content: space-between;
+  padding-right: 40px;
+  border-right: 1px solid #d9c7b9;
+  gap: 36px;
+}
+.location-card h2.eyebrow {
+  font:
+    500 10px/1.8 Manrope,
+    Arial,
+    sans-serif;
+  letter-spacing: 1.8px;
+  margin: 0 0 28px;
+  color: #786253;
+}
+.contact-address {
+  display: block;
+  font:
+    400 clamp(32px, 3.6vw, 44px)/1.2 "Cormorant Garamond",
+    Georgia,
+    serif;
+  letter-spacing: -0.6px;
+  color: var(--ink);
+  transition: color 0.2s;
+}
+.contact-address:hover {
+  color: #826653;
+}
+.location-card address p {
+  font:
+    14px/1.8 Manrope,
+    Arial,
+    sans-serif;
+  margin: 20px 0 0;
+  color: #78675a;
+}
+.location-card .map-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  border-bottom: 1px solid #bda28f;
+  font-size: 12px;
+}
+.location-card .map-link:hover {
+  color: #826653;
+}
+.channel-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 100%;
+}
+.channel-mark {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: #715746;
+}
+.channel-icon {
+  display: block;
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+}
+.contact-card .channel-heading h2 {
+  font-size: clamp(32px, 3vw, 38px);
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+}
+.booking-card {
+  padding-bottom: 28px;
+}
+.booking-card .button {
+  margin-top: 24px;
+  min-height: 50px;
+  font-size: 13px;
+  padding-inline: 26px;
+}
+.phone-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 8px;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  color: #78675a;
+}
+.phone-link:hover {
+  color: var(--ink);
+}
+.instagram-card {
+  padding-top: 28px;
+  border-top: 1px solid #d9c7b9;
+}
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 12px;
+  font-size: 14px;
+  color: #695447;
+  border-bottom: 1px solid #bda28f;
+  overflow-wrap: anywhere;
+}
+.instagram-link:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.contact-card a {
+  max-width: 100%;
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  .contact-heading {
+    padding-top: 36px;
+  }
+  .contact-layout {
+    width: calc(100% - 56px);
+    padding: 36px;
+    column-gap: 32px;
+  }
+  .location-card {
+    padding-right: 28px;
+  }
+  .contact-address {
+    font-size: 36px;
+  }
+  .contact-card .channel-heading h2 {
+    font-size: 33px;
+  }
+  .instagram-link {
+    font-size: 12px;
+  }
+}
+@media (max-width: 600px) {
+  .contact-heading {
+    padding-top: 28px;
+    padding-bottom: 30px;
+  }
+  .contact-heading h1 {
+    font-size: clamp(47px, 10vw, 58px);
+  }
+  .contact-heading .eyebrow {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+  }
+  .contact-layout {
+    width: calc(100% - 44px);
+    grid-template-columns: minmax(0, 1fr);
+    padding: 30px 26px;
+    border-radius: 28px;
+    margin-bottom: 40px;
+  }
+  .location-card {
+    grid-row: auto;
+    padding: 0 0 30px;
+    border-right: 0;
+    border-bottom: 1px solid #d9c7b9;
+    gap: 22px;
+  }
+  .location-card h2.eyebrow {
+    margin-bottom: 20px;
+  }
+  .contact-address {
+    font-size: 36px;
+  }
+  .location-card address p {
+    margin-top: 14px;
+  }
+  .booking-card {
+    padding-top: 30px;
+    padding-bottom: 24px;
+  }
+  .instagram-card {
+    padding-top: 28px;
+  }
+  .contact-card .channel-heading h2 {
+    font-size: 34px;
+  }
+  .booking-card .button {
+    margin-top: 22px;
+  }
+  .instagram-link {
+    font-size: 13px;
+  }
+}
+@media (max-width: 360px) {
+  .contact-layout {
+    width: calc(100% - 36px);
+    padding: 28px 22px;
+  }
+  .contact-address {
+    font-size: 32px;
+  }
+  .contact-card .channel-heading h2 {
+    font-size: 32px;
+  }
+  .instagram-link {
+    font-size: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-address {
+    transition: none;
+  }
+}
+
+footer .mapin-credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: 1.6;
+}
