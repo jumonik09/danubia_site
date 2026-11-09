@@ -46,7 +46,7 @@
     if (menu && nav) {
       menu.addEventListener("click", () => setMenu(menu.getAttribute("aria-expanded") !== "true"));
       nav.addEventListener("click", (event) => {
-        if (event.target.closest("a")) setMenu(false);
+        if (event.target.closest("a")) setTimeout(() => setMenu(false), 0);
       });
       document.addEventListener("click", (event) => {
         if (!page.contains(event.target) || (!nav.contains(event.target) && !menu.contains(event.target))) {
@@ -65,10 +65,12 @@
           menu.focus();
         }
       });
-      nav.addEventListener("focusout", () => {
-        queueMicrotask(() => {
-          if (disclosure && !disclosure.contains(document.activeElement)) disclosure.open = false;
-        });
+      // relatedTarget identifica o próximo foco sem fechar o submenu durante
+      // o mousedown de um link. Consultar activeElement aqui pode retornar o body
+      // antes de o navegador focar o destino e impedir o clique de navegar.
+      nav.addEventListener("focusout", (event) => {
+        const nextFocus = event.relatedTarget;
+        if (disclosure && nextFocus && !nav.contains(nextFocus)) disclosure.open = false;
       });
       if ("ResizeObserver" in window) {
         let wasCompact = page.getBoundingClientRect().width <= 1100;

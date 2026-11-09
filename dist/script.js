@@ -9,9 +9,11 @@ if (menu && nav) {
   });
   nav.querySelectorAll("a").forEach((link) =>
     link.addEventListener("click", () => {
-      nav.classList.remove("open");
-      menu.setAttribute("aria-expanded", "false");
-      menu.setAttribute("aria-label", "Abrir menu");
+      setTimeout(() => {
+        nav.classList.remove("open");
+        menu.setAttribute("aria-expanded", "false");
+        menu.setAttribute("aria-label", "Abrir menu");
+      }, 0);
     })
   );
 
@@ -176,12 +178,13 @@ if (menu && nav) {
       details.dataset.submenuReady = "true";
       details.addEventListener("keydown", (event) => {
         if (event.key === "Escape" && details.open) {
+          event.stopPropagation();
           details.open = false;
           details.querySelector("summary").focus();
         }
       });
       details.addEventListener("click", (event) => {
-        if (event.target.closest("a")) details.open = false;
+        if (event.target.closest("a")) setTimeout(() => { details.open = false; }, 0);
       });
       document.addEventListener("click", (event) => {
         if (!details.contains(event.target)) details.open = false;

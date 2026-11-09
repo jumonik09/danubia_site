@@ -116,7 +116,7 @@
 .danubia-mega-hair .nav-disclosure { position: static; margin: 0; padding: 0; border: 0; }
 .danubia-mega-hair .nav-disclosure summary { display: grid; place-items: center; width: 36px; min-height: 44px; border-radius: 12px; color: var(--accent); list-style: none; cursor: pointer; }
 .danubia-mega-hair .nav-disclosure summary::-webkit-details-marker { display: none; }
-.danubia-mega-hair .nav-disclosure[open] summary span { transform: rotate(180deg); }
+.danubia-mega-hair .nav-disclosure[open] summary .submenu-chevron { transform: rotate(180deg); }
 .danubia-mega-hair .submenu-panel { position: absolute; top: 100%; left: 0; z-index: 40; display: flex; flex-direction: column; min-width: 195px; padding: 8px 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); box-shadow: 0 12px 28px #493b3114; }
 .danubia-mega-hair .nav-disclosure:not([open]) .submenu-panel { display: none; }
 .danubia-mega-hair .submenu-panel a { width: 100%; white-space: normal; }
@@ -258,7 +258,7 @@
   .danubia-mega-hair.is-ready header.danubia-header nav:not(.open) { display: none; }
   .danubia-mega-hair.is-ready header.danubia-header nav.open { position: absolute; top: 100%; left: 0; right: 0; display: flex; flex-direction: column; align-items: stretch; padding: 12px 24px 20px; gap: 0; border-top: 1px solid var(--line); border-radius: 0 0 20px 20px; background: var(--paper); box-shadow: 0 12px 20px #493b3110; }
   .danubia-mega-hair .nav-services { flex-wrap: wrap; width: 100%; }
-  .danubia-mega-hair .nav-disclosure[open] { display: contents; }
+  .danubia-mega-hair .nav-disclosure[open] { display: block; }
   .danubia-mega-hair .submenu-panel { position: static; width: 100%; flex-basis: 100%; margin-bottom: 10px; box-shadow: none; }
 }
 @container mega-page (max-width: 1100px) {
@@ -270,7 +270,7 @@
   .danubia-mega-hair.is-ready header.danubia-header nav:not(.open) { display: none; }
   .danubia-mega-hair.is-ready header.danubia-header nav.open { position: absolute; top: 100%; left: 0; right: 0; display: flex; flex-direction: column; align-items: stretch; padding: 12px 24px 20px; gap: 0; border-top: 1px solid var(--line); border-radius: 0 0 20px 20px; background: var(--paper); box-shadow: 0 12px 20px #493b3110; }
   .danubia-mega-hair .nav-services { flex-wrap: wrap; width: 100%; }
-  .danubia-mega-hair .nav-disclosure[open] { display: contents; }
+  .danubia-mega-hair .nav-disclosure[open] { display: block; }
   .danubia-mega-hair .submenu-panel { position: static; width: 100%; flex-basis: 100%; margin-bottom: 10px; box-shadow: none; }
 }
 @media (max-width: 900px) {
@@ -313,3 +313,99 @@
   .danubia-mega-hair *, .danubia-mega-hair *::before, .danubia-mega-hair *::after { transition: none; }
   .danubia-mega-hair .mega-hero-photo:hover img, .danubia-mega-hair .mega-card:hover, .danubia-mega-hair .button:hover > span { transform: none; }
 }
+
+/* SERVIÇOS: texto e seta formam um único controle para abrir as opções. */
+header.danubia-header nav .nav-services > .nav-disclosure > summary {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+  width: auto;
+  min-width: 0;
+  min-height: 44px;
+  margin: 0;
+  padding: 8px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font: 400 12px/1.5 Arial, sans-serif;
+  list-style: none;
+  cursor: pointer;
+}
+header.danubia-header nav .nav-services > .nav-disclosure > summary::-webkit-details-marker { display: none; }
+header.danubia-header nav .nav-services > .nav-disclosure > summary::after { content: none; }
+header.danubia-header nav .nav-services > .nav-disclosure > summary .services-label { transform: none; }
+header.danubia-header nav .nav-services > .nav-disclosure > summary .submenu-chevron { color: #826653; transition: transform .2s ease; }
+header.danubia-header nav .nav-services > .nav-disclosure[open] > summary { color: #826653; }
+header.danubia-header nav .nav-services > .nav-disclosure[open] > summary .submenu-chevron { transform: rotate(180deg); }
+header.danubia-header nav .nav-services > .nav-disclosure > summary:hover { color: #826653; background: transparent; }
+header.danubia-header nav .nav-services > .nav-disclosure > summary:focus-visible { outline: 2px solid #826653; outline-offset: 4px; border-radius: 4px; }
+@media (max-width: 1100px) {
+  header.danubia-header nav .nav-services > .nav-disclosure { width: 100%; }
+  header.danubia-header nav .nav-services > .nav-disclosure > summary { width: 100%; min-height: 48px; justify-content: space-between; font-size: 14px; }
+  header.danubia-header nav .nav-services .submenu-panel { margin-top: 2px; padding: 6px 16px; background: #f5eee8; }
+}
+@container mega-page (max-width: 1100px) {
+  header.danubia-header nav .nav-services > .nav-disclosure { width: 100%; }
+  header.danubia-header nav .nav-services > .nav-disclosure > summary { width: 100%; min-height: 48px; justify-content: space-between; font-size: 14px; }
+  header.danubia-header nav .nav-services .submenu-panel { margin-top: 2px; padding: 6px 16px; background: #f5eee8; }
+}
+@media (prefers-reduced-motion: reduce) {
+  header.danubia-header nav .nav-services > .nav-disclosure > summary .submenu-chevron { transition: none; }
+}
+
+/* Submenu sempre vertical, inclusive em temas WordPress que usam flex nas listas. */
+header.danubia-header #main-navigation .nav-disclosure[open] {
+  display: block !important;
+}
+header.danubia-header #main-navigation .nav-disclosure[open] > .submenu-panel {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  grid-auto-flow: row;
+  align-items: stretch;
+  gap: 0;
+}
+header.danubia-header #main-navigation .submenu-panel > a {
+  display: flex !important;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  margin: 0;
+  float: none;
+  white-space: normal;
+}
+
+/* Mantém os links do submenu acionáveis, inclusive quando a página está ativa. */
+header.danubia-header #main-navigation .submenu-panel > a[href] {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+header.danubia-header #main-navigation .submenu-panel > a[href]:hover,
+header.danubia-header #main-navigation .submenu-panel > a[href]:focus-visible {
+  color: #826653;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Todos os serviços: toda a linha é um link, incluindo texto e seta. */
+header.danubia-header #main-navigation .submenu-panel > a.submenu-link {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 8px;
+  border-radius: 8px;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  text-decoration: none;
+}
+header.danubia-header #main-navigation .submenu-panel > a.submenu-link > span { pointer-events: none; }
+header.danubia-header #main-navigation .submenu-panel > a.submenu-link > span:last-child { flex-shrink: 0; color: #826653; }
+header.danubia-header #main-navigation .submenu-panel > a.submenu-link:hover,
+header.danubia-header #main-navigation .submenu-panel > a.submenu-link:focus-visible { background: #eee3da; color: #493b31; }

@@ -1,34 +1,97 @@
-/* Política de Privacidade: estilos independentes e limitados à página. */
-.danubia-privacidade, .danubia-privacidade * { box-sizing: border-box; }
-.danubia-privacidade { width: 100%; max-width: none !important; margin: 0; background: #faf6f2; color: #211c19; font: 16px/1.8 Arial, sans-serif; }
-.danubia-privacidade > .privacy-header, .danubia-privacidade > .privacy-main, .danubia-privacidade > .privacy-footer { width: 100%; max-width: none !important; margin: 0 !important; }
+/* Política de Privacidade: texto preservado; cabeçalho e rodapé padrão do site. */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap");
+.danubia-privacidade { --paper: #faf6f2; --ink: #211c19; --muted: #786b62; --line: #e1d4ca; width: 100%; min-width: 0; margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.8 Arial, sans-serif; }
+.danubia-privacidade, .danubia-privacidade *, .danubia-privacidade *::before, .danubia-privacidade *::after { box-sizing: border-box; }
 .danubia-privacidade a { color: inherit; text-underline-offset: 4px; overflow-wrap: anywhere; }
-.danubia-privacidade a:focus-visible { outline: 2px solid #826653; outline-offset: 4px; }
-.danubia-privacidade .privacy-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; padding: 24px clamp(20px, 5vw, 72px); border-bottom: 1px solid #e1d4ca; font-size: 13px; }
-.danubia-privacidade .privacy-header a { display: inline-flex; align-items: center; min-height: 44px; }
-.danubia-privacidade .privacy-brand { font-size: 12px; letter-spacing: 1.3px; text-decoration: none; }
-.danubia-privacidade .privacy-main { padding: clamp(36px, 6vw, 72px) max(22px, calc((100% - 800px) / 2)); }
+.danubia-privacidade :is(a, button, summary):focus-visible { outline: 2px solid #826653; outline-offset: 4px; }
+.danubia-privacidade .privacy-main { width: 100%; max-width: none; margin: 0; padding: clamp(36px, 6vw, 72px) max(22px, calc((100% - 800px) / 2)); }
 .danubia-privacidade .privacy-eyebrow { color: #695447; font-size: 11px; letter-spacing: 1.8px; }
 .danubia-privacidade h1 { margin: 16px 0; color: #211c19; font: 400 clamp(36px, 5.5vw, 64px)/1.12 Georgia, serif; overflow-wrap: anywhere; }
 .danubia-privacidade h2 { margin: 0 0 16px; color: #211c19; font: 400 clamp(25px, 3vw, 32px)/1.25 Georgia, serif; }
 .danubia-privacidade p { margin: 0 0 18px; }
 .danubia-privacidade .privacy-updated { color: #695447; font-size: 12px; }
 .danubia-privacidade .privacy-intro { font-size: 18px; margin: 28px 0 36px; }
-.danubia-privacidade section { padding: 28px 0 10px; border-top: 1px solid #e1d4ca; }
-.danubia-privacidade .privacy-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; padding: 24px clamp(22px, 5vw, 72px); background: #211c19; color: #faf6f2; font-size: 11px; }
-.danubia-privacidade .privacy-footer a { display: inline-flex; align-items: center; min-height: 44px; }
+.danubia-privacidade .privacy-main section { padding: 28px 0 10px; border-top: 1px solid #e1d4ca; }
 .danubia-privacidade .privacy-skip { position: absolute; left: 20px; top: -120px; }
-.danubia-privacidade .privacy-skip:focus { top: 12px; background: #faf6f2; padding: 12px; z-index: 10; }
-@media (max-width: 600px) {
- .danubia-privacidade .privacy-header, .danubia-privacidade .privacy-footer { flex-direction: column; align-items: flex-start; }
+.danubia-privacidade .privacy-skip:focus { top: 12px; background: #faf6f2; padding: 12px; z-index: 100; }
+
+/* Componentes visuais com o mesmo acabamento da página Serviços. */
+.danubia-privacidade header.danubia-header a { text-decoration: none; }
+.danubia-privacidade header.danubia-header > .button { display: inline-flex; align-items: center; justify-content: center; gap: 18px; min-height: 48px; padding: 13px 24px; border: 1px solid #211c19; border-radius: 28px; background: #211c19; color: #faf6f2; font: 400 12px/1.8 Manrope, Arial, sans-serif; }
+.danubia-privacidade header.danubia-header > .button:hover { background: #493b31; }
+.danubia-privacidade header.danubia-header button { font-family: inherit; color: inherit; cursor: pointer; }
+.danubia-privacidade footer.danubia-footer { background: #211c19; color: #faf6f2; font: 400 10px/1.8 Manrope, Arial, sans-serif; letter-spacing: 1px; }
+.danubia-privacidade footer.danubia-footer a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; }
+.danubia-privacidade footer.danubia-footer .footer-brand { font-size: 11px; letter-spacing: 1.3px; }
+
+/* Rodapé padrão: marca, MAPIN, privacidade e retorno para Home. */
+
+.danubia-privacidade footer.danubia-footer {
+  box-sizing: border-box;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: auto !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 24px clamp(22px, 4vw, 64px) !important;
+  gap: 16px 28px !important;
 }
-/* Link discreto nos rodapés existentes, com área de toque acessível. */
-footer a.privacy-link { display: inline-flex; align-items: center; min-height: 44px; max-width: 100%; font-size: 11px; font-weight: 400; letter-spacing: 0; line-height: 1.5; color: inherit; text-decoration: underline; text-decoration-color: #a58e7e; text-underline-offset: 4px; overflow-wrap: anywhere; }
-footer a.privacy-link:hover { text-decoration-thickness: 2px; }
-footer a.privacy-link:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.danubia-privacidade footer.danubia-footer > * {
+  min-width: 0;
+  max-width: 100%;
+  grid-column: auto !important;
+  overflow-wrap: anywhere;
+}
+.danubia-privacidade footer.danubia-footer > .footer-brand { justify-self: start; }
+.danubia-privacidade footer.danubia-footer > a { justify-self: end; }
+.danubia-privacidade footer.danubia-footer > .footer-credits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+.danubia-privacidade footer.danubia-footer .footer-credits > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  white-space: normal;
+  text-align: center;
+}
+.danubia-privacidade footer.danubia-footer .footer-credits > .privacy-link {
+  font-size: 10px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: #a58e7e;
+}
+@media (max-width: 900px) {
+  .danubia-privacidade footer.danubia-footer {
+    grid-template-columns: minmax(0, 1fr) !important;
+    justify-items: center;
+    text-align: center;
+    gap: 12px !important;
+  }
+  .danubia-privacidade footer.danubia-footer > .footer-brand,
+  .danubia-privacidade footer.danubia-footer > a,
+  .danubia-privacidade footer.danubia-footer > .footer-credits { justify-self: center; }
+}
+
 
 /* CABEÇALHO PADRÃO: mesma navegação em todas as páginas. */
-body header.danubia-header {
+.danubia-privacidade header.danubia-header {
   box-sizing: border-box;
   position: relative;
   display: flex;
@@ -42,12 +105,12 @@ body header.danubia-header {
   gap: 24px;
   z-index: 30;
 }
-body header.danubia-header .brand { display: block; flex: 0 1 210px; min-width: 0; }
-body header.danubia-header .brand img { display: block; width: 210px; max-width: 100%; height: auto; }
-body header.danubia-header nav { display: flex; align-items: center; gap: 24px; width: auto; order: 0; }
-body header.danubia-header nav a { display: inline-flex; align-items: center; min-height: 44px; font: 400 12px/1.5 Arial,sans-serif; text-decoration: none; color: inherit; }
-body header.danubia-header > .button { flex: 0 0 auto; margin: 0; order: 0; }
-body header.danubia-header .menu {
+.danubia-privacidade header.danubia-header .brand { display: block; flex: 0 1 210px; min-width: 0; }
+.danubia-privacidade header.danubia-header .brand img { display: block; width: 210px; max-width: 100%; height: auto; }
+.danubia-privacidade header.danubia-header nav { display: flex; align-items: center; gap: 24px; width: auto; order: 0; }
+.danubia-privacidade header.danubia-header nav a { display: inline-flex; align-items: center; min-height: 44px; font: 400 12px/1.5 Arial,sans-serif; text-decoration: none; color: inherit; }
+.danubia-privacidade header.danubia-header > .button { flex: 0 0 auto; margin: 0; order: 0; }
+.danubia-privacidade header.danubia-header .menu {
   display: none;
   position: relative;
   flex: 0 0 44px;
@@ -65,8 +128,8 @@ body header.danubia-header .menu {
   line-height: 0;
   cursor: pointer;
 }
-body header.danubia-header .menu::before,
-body header.danubia-header .menu::after {
+.danubia-privacidade header.danubia-header .menu::before,
+.danubia-privacidade header.danubia-header .menu::after {
   content: "";
   position: absolute;
   left: 12px;
@@ -77,17 +140,17 @@ body header.danubia-header .menu::after {
   transform: translateY(-3px);
   transition: transform .2s ease;
 }
-body header.danubia-header .menu::after { transform: translateY(3px); }
-body header.danubia-header .menu[aria-expanded="true"]::before { transform: rotate(45deg); }
-body header.danubia-header .menu[aria-expanded="true"]::after { transform: rotate(-45deg); }
-body header.danubia-header .menu:hover { background: #eee3da; }
-body header.danubia-header .menu:focus-visible { outline: 2px solid #826653; outline-offset: 4px; }
+.danubia-privacidade header.danubia-header .menu::after { transform: translateY(3px); }
+.danubia-privacidade header.danubia-header .menu[aria-expanded="true"]::before { transform: rotate(45deg); }
+.danubia-privacidade header.danubia-header .menu[aria-expanded="true"]::after { transform: rotate(-45deg); }
+.danubia-privacidade header.danubia-header .menu:hover { background: #eee3da; }
+.danubia-privacidade header.danubia-header .menu:focus-visible { outline: 2px solid #826653; outline-offset: 4px; }
 @media (max-width: 1100px) {
-  body header.danubia-header { gap: 16px; padding: 16px 28px; }
-  body header.danubia-header .menu { display: block; }
-  body header.danubia-header nav,
-  body header.danubia-header nav:not(.open) { display: none; }
-  body header.danubia-header nav.open {
+  .danubia-privacidade header.danubia-header { gap: 16px; padding: 16px 28px; }
+  .danubia-privacidade header.danubia-header .menu { display: block; }
+  .danubia-privacidade header.danubia-header nav,
+  .danubia-privacidade header.danubia-header nav:not(.open) { display: none; }
+  .danubia-privacidade header.danubia-header nav.open {
     box-sizing: border-box;
     position: absolute;
     top: 100%;
@@ -106,59 +169,179 @@ body header.danubia-header .menu:focus-visible { outline: 2px solid #826653; out
     border-radius: 0 0 20px 20px;
     box-shadow: 0 12px 20px #493b3110;
   }
-  body header.danubia-header nav a { padding: 10px 0; font-size: 14px; }
+  .danubia-privacidade header.danubia-header nav a { padding: 10px 0; font-size: 14px; }
 }
 @media (max-width: 600px) {
-  body header.danubia-header { padding: 16px 20px; }
-  body header.danubia-header > .button { display: none !important; }
-  body header.danubia-header .brand { flex-basis: 170px; }
-  body header.danubia-header .brand img { width: 170px; }
-  body header.danubia-header nav.open { padding-inline: 20px; }
+  .danubia-privacidade header.danubia-header { padding: 16px 20px; }
+  .danubia-privacidade header.danubia-header > .button { display: none !important; }
+  .danubia-privacidade header.danubia-header .brand { flex-basis: 170px; }
+  .danubia-privacidade header.danubia-header .brand img { width: 170px; }
+  .danubia-privacidade header.danubia-header nav.open { padding-inline: 20px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  body header.danubia-header .menu::before,
-  body header.danubia-header .menu::after { transition: none; }
+  .danubia-privacidade header.danubia-header .menu::before,
+  .danubia-privacidade header.danubia-header .menu::after { transition: none; }
 }
 
-/* Agendamento: mesmo botão escuro das páginas de serviços e contato. */
-.danubia-privacidade header.danubia-header > a.button,
-.danubia-privacidade header.danubia-header > a.button:visited {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  min-height: 48px;
-  padding: 13px 24px;
-  border: 1px solid #211c19;
-  border-radius: 28px;
-  background: #211c19;
-  color: #faf6f2;
-  font: 400 12px/1.8 Arial, sans-serif;
-  text-decoration: none;
-  transition: background-color .2s, border-color .2s;
-}
-.danubia-privacidade header.danubia-header > a.button:hover,
-.danubia-privacidade header.danubia-header > a.button:focus-visible {
-  background: #493b31;
-  border-color: #493b31;
-  color: #faf6f2;
-}
-
-/* Mega hair fica dentro do submenu de Serviços. */
-nav .nav-services { position: relative; display: flex; align-items: center; gap: 2px; }
-nav .nav-disclosure { position: static; border: 0; margin: 0; padding: 0; }
-nav .nav-disclosure > summary { display: grid; place-items: center; width: 36px; min-height: 44px; margin: 0; padding: 0; list-style: none; cursor: pointer; color: #826653; border-radius: 12px; }
-nav .nav-disclosure > summary::-webkit-details-marker { display: none; }
-nav .nav-disclosure > summary::after { content: none; }
-nav .nav-disclosure > summary:hover { background: #eee3da; }
-nav .nav-disclosure > summary:focus-visible { outline: 2px solid #826653; outline-offset: 2px; }
-nav .nav-disclosure[open] > summary span { transform: rotate(180deg); }
-nav .nav-disclosure .submenu-panel { position: absolute; top: 100%; left: 0; z-index: 50; display: flex; flex-direction: column; align-items: stretch; min-width: 195px; padding: 10px 16px; gap: 0; background: #faf6f2; border: 1px solid #e1d4ca; border-radius: 14px; box-shadow: 0 12px 28px #493b3114; }
-nav .nav-disclosure:not([open]) .submenu-panel { display: none; }
-nav .nav-disclosure .submenu-panel a { width: 100%; min-height: 44px; padding: 10px 0; white-space: nowrap; }
-nav .nav-disclosure .submenu-panel a:hover { color: #826653; }
+/* SUBMENU SERVIÇOS — colar ao final do CSS adicional do WordPress.
+ * Requer o nav do arquivo submenu-servicos-wordpress.html.
+ * A opção Mega hair aponta para /mega-hair/.
+ */
+.danubia-privacidade header.danubia-header .nav-services { position: relative; display: flex; align-items: center; gap: 2px; }
+.danubia-privacidade header.danubia-header .nav-disclosure { position: static; padding: 0; margin: 0; border: 0; }
+.danubia-privacidade header.danubia-header .nav-disclosure summary { display: grid; place-items: center; width: 36px; min-height: 44px; margin: 0; padding: 0; border-radius: 12px; color: #826653; list-style: none; cursor: pointer; }
+.danubia-privacidade header.danubia-header .nav-disclosure summary::-webkit-details-marker { display: none; }
+.danubia-privacidade header.danubia-header .nav-disclosure summary::after { content: none; }
+.danubia-privacidade header.danubia-header .nav-disclosure summary:hover { background: #eee3da; }
+.danubia-privacidade header.danubia-header .nav-disclosure summary:focus-visible { outline: 2px solid #826653; outline-offset: 4px; }
+.danubia-privacidade header.danubia-header .nav-disclosure[open] summary .submenu-chevron { transform: rotate(180deg); }
+.danubia-privacidade header.danubia-header .submenu-panel { position: absolute; top: 100%; left: 0; z-index: 50; display: flex; flex-direction: column; align-items: stretch; min-width: 195px; padding: 8px 16px; gap: 0; border: 1px solid #e1d4ca; border-radius: 14px; background: #faf6f2; box-shadow: 0 12px 28px #493b3114; }
+.danubia-privacidade header.danubia-header .nav-disclosure:not([open]) .submenu-panel { display: none; }
+.danubia-privacidade header.danubia-header .submenu-panel a { display: inline-flex; align-items: center; width: 100%; min-height: 44px; padding: 8px 0; font-size: 12px; line-height: 1.5; white-space: normal; }
+.danubia-privacidade header.danubia-header .submenu-panel a:hover { color: #826653; }
 @media (max-width: 1100px) {
-  nav .nav-services { flex-wrap: wrap; width: 100%; }
-  nav .nav-disclosure[open] { display: contents; }
-  nav .nav-disclosure .submenu-panel { position: static; flex-basis: 100%; width: 100%; min-width: 0; margin-bottom: 10px; padding: 4px 16px; box-shadow: none; border-radius: 12px; }
+  .danubia-privacidade header.danubia-header .nav-services { flex-wrap: wrap; width: 100%; }
+  .danubia-privacidade header.danubia-header .nav-disclosure[open] { display: block; }
+  .danubia-privacidade header.danubia-header .submenu-panel { position: static; width: 100%; flex-basis: 100%; min-width: 0; margin-bottom: 10px; box-shadow: none; }
+}
+
+/* SERVIÇOS: texto e seta formam um único controle para abrir as opções. */
+.danubia-privacidade header.danubia-header nav .nav-services > .nav-disclosure > summary {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+  width: auto;
+  min-width: 0;
+  min-height: 44px;
+  margin: 0;
+  padding: 8px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font: 400 12px/1.5 Arial, sans-serif;
+  list-style: none;
+  cursor: pointer;
+}
+.danubia-privacidade header.danubia-header nav .nav-services > .nav-disclosure > summary::-webkit-details-marker { display: none; }
+.danubia-privacidade header.danubia-header nav .nav-services > .nav-disclosure > summary::after { content: none; }
+.danubia-privacidade header.danubia-header nav .nav-services > .nav-disclosure > summary .services-label { transform: none; }
+.danubia-privacidade header.danubia-header nav .nav-services > .nav-disclosure > summary .submenu-chevron { color: #826653; transition: transform .2s ease; }
+.danubia-privacidade header.danubia-header nav .nav-services > .nav-disclosure[open] > summary { color: #826653; }
+.danubia-privacidade header.danubia-header nav .nav-services > .nav-disclosure[open] > summary .submenu-chevron { transform: rotate(180deg); }
+.danubia-privacidade header.danubia-header nav .nav-services > .nav-disclosure > summary:hover { color: #826653; background: transparent; }
+.danubia-privacidade header.danubia-header nav .nav-services > .nav-disclosure > summary:focus-visible { outline: 2px solid #826653; outline-offset: 4px; border-radius: 4px; }
+@media (max-width: 1100px) {
+  .danubia-privacidade header.danubia-header nav .nav-services > .nav-disclosure { width: 100%; }
+  .danubia-privacidade header.danubia-header nav .nav-services > .nav-disclosure > summary { width: 100%; min-height: 48px; justify-content: space-between; font-size: 14px; }
+  .danubia-privacidade header.danubia-header nav .nav-services .submenu-panel { margin-top: 2px; padding: 6px 16px; background: #f5eee8; }
+}
+@container mega-page (max-width: 1100px) {
+  .danubia-privacidade header.danubia-header nav .nav-services > .nav-disclosure { width: 100%; }
+  .danubia-privacidade header.danubia-header nav .nav-services > .nav-disclosure > summary { width: 100%; min-height: 48px; justify-content: space-between; font-size: 14px; }
+  .danubia-privacidade header.danubia-header nav .nav-services .submenu-panel { margin-top: 2px; padding: 6px 16px; background: #f5eee8; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .danubia-privacidade header.danubia-header nav .nav-services > .nav-disclosure > summary .submenu-chevron { transition: none; }
+}
+
+/* Submenu sempre vertical, inclusive em temas WordPress que usam flex nas listas. */
+.danubia-privacidade header.danubia-header #main-navigation .nav-disclosure[open] {
+  display: block !important;
+}
+.danubia-privacidade header.danubia-header #main-navigation .nav-disclosure[open] > .submenu-panel {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  grid-auto-flow: row;
+  align-items: stretch;
+  gap: 0;
+}
+.danubia-privacidade header.danubia-header #main-navigation .submenu-panel > a {
+  display: flex !important;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  margin: 0;
+  float: none;
+  white-space: normal;
+}
+
+/* Mantém os links do submenu acionáveis, inclusive quando a página está ativa. */
+.danubia-privacidade header.danubia-header #main-navigation .submenu-panel > a[href] {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+.danubia-privacidade header.danubia-header #main-navigation .submenu-panel > a[href]:hover,
+.danubia-privacidade header.danubia-header #main-navigation .submenu-panel > a[href]:focus-visible {
+  color: #826653;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Todos os serviços: toda a linha é um link, incluindo texto e seta. */
+.danubia-privacidade header.danubia-header #main-navigation .submenu-panel > a.submenu-link {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 8px;
+  border-radius: 8px;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  text-decoration: none;
+}
+.danubia-privacidade header.danubia-header #main-navigation .submenu-panel > a.submenu-link > span { pointer-events: none; }
+.danubia-privacidade header.danubia-header #main-navigation .submenu-panel > a.submenu-link > span:last-child { flex-shrink: 0; color: #826653; }
+.danubia-privacidade header.danubia-header #main-navigation .submenu-panel > a.submenu-link:hover,
+.danubia-privacidade header.danubia-header #main-navigation .submenu-panel > a.submenu-link:focus-visible { background: #eee3da; color: #493b31; }
+
+@media (max-width: 1100px) {
+  .danubia-privacidade header.danubia-header:not(.privacy-menu-ready) { flex-wrap: wrap; }
+  .danubia-privacidade header.danubia-header:not(.privacy-menu-ready) nav { position: static; display: flex !important; flex-wrap: wrap; width: 100%; order: 3; gap: 8px 20px; }
+  .danubia-privacidade header.danubia-header:not(.privacy-menu-ready) .menu { display: none; }
+}
+
+/* Rodapé da Política: mesmo padrão de Serviços.
+   Cole ao final do CSS adicional; requer o HTML atualizado. */
+.danubia-privacidade footer.danubia-footer {
+  box-sizing: border-box;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: auto !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 24px clamp(22px, 4vw, 64px) !important;
+  gap: 16px 28px !important;
+  background: #211c19 !important;
+  color: #faf6f2 !important;
+  font: 400 10px/1.8 Manrope, Arial, sans-serif;
+  letter-spacing: 1px;
+}
+.danubia-privacidade footer.danubia-footer > * {
+  min-width: 0;
+  max-width: 100%;
+  grid-column: auto !important;
+  overflow-wrap: anywhere;
+}
+.danubia-privacidade footer.danubia-footer > .footer-brand { justify-self: start; font-size: 11px; letter-spacing: 1.3px; }
+.danubia-privacidade footer.danubia-footer > a { justify-self: end; }
+.danubia-privacidade footer.danubia-footer a { display: inline-flex; align-items: center; min-height: 44px; color: #faf6f2 !important; text-decoration: none; pointer-events: auto !important; cursor: pointer; }
+.danubia-privacidade footer.danubia-footer > .footer-credits { display: flex; flex-direction: column; align-items: center; justify-self: center; gap: 0; margin: 0; padding: 0; }
+.danubia-privacidade footer.danubia-footer .footer-credits > a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; max-width: 100%; margin: 0; padding: 0; font-size: 11px; line-height: 1.5; letter-spacing: 0; white-space: normal; text-align: center; }
+.danubia-privacidade footer.danubia-footer .footer-credits > .privacy-link { font-size: 10px; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #a58e7e; }
+.danubia-privacidade footer.danubia-footer a:focus-visible { outline: 2px solid #faf6f2; outline-offset: 4px; }
+@media (max-width: 900px) {
+  .danubia-privacidade footer.danubia-footer { grid-template-columns: minmax(0, 1fr) !important; justify-items: center; text-align: center; gap: 12px !important; }
+  .danubia-privacidade footer.danubia-footer > .footer-brand,
+  .danubia-privacidade footer.danubia-footer > a,
+  .danubia-privacidade footer.danubia-footer > .footer-credits { justify-self: center; }
 }
