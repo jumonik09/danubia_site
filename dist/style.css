@@ -829,3 +829,67 @@ footer .mapin-credit span {
   object-fit: cover;
   border-radius: 28px;
 }
+
+/* Chamada de avaliação no centro da home. */
+.review-section {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+.review-card {
+  max-width: 960px;
+  margin-inline: auto;
+  padding: clamp(30px, 4vw, 48px) clamp(24px, 4vw, 48px);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--panel);
+  text-align: center;
+}
+.review-card .eyebrow {
+  margin: 0 0 14px;
+  color: var(--accent);
+}
+.review-card h2 {
+  margin: 0 0 18px;
+  font-size: clamp(30px, 3.5vw, 46px);
+  line-height: 1.12;
+}
+.review-card .review-copy {
+  max-width: 490px;
+  margin: 0 auto 22px;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+.review-card .review-button {
+  max-width: 100%;
+  background: var(--accent);
+  border-color: var(--accent);
+  white-space: normal;
+}
+.review-card .review-button:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.review-card .review-caption {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Mega hair fica dentro do submenu de Serviços. */
+nav .nav-services { position: relative; display: flex; align-items: center; gap: 2px; }
+nav .nav-disclosure { position: static; border: 0; margin: 0; padding: 0; }
+nav .nav-disclosure > summary { display: grid; place-items: center; width: 36px; min-height: 44px; margin: 0; padding: 0; list-style: none; cursor: pointer; color: #826653; border-radius: 12px; }
+nav .nav-disclosure > summary::-webkit-details-marker { display: none; }
+nav .nav-disclosure > summary::after { content: none; }
+nav .nav-disclosure > summary:hover { background: #eee3da; }
+nav .nav-disclosure > summary:focus-visible { outline: 2px solid #826653; outline-offset: 2px; }
+nav .nav-disclosure[open] > summary span { transform: rotate(180deg); }
+nav .nav-disclosure .submenu-panel { position: absolute; top: 100%; left: 0; z-index: 50; display: flex; flex-direction: column; align-items: stretch; min-width: 195px; padding: 10px 16px; gap: 0; background: #faf6f2; border: 1px solid #e1d4ca; border-radius: 14px; box-shadow: 0 12px 28px #493b3114; }
+nav .nav-disclosure:not([open]) .submenu-panel { display: none; }
+nav .nav-disclosure .submenu-panel a { width: 100%; min-height: 44px; padding: 10px 0; white-space: nowrap; }
+nav .nav-disclosure .submenu-panel a:hover { color: #826653; }
+@media (max-width: 1100px) {
+  nav .nav-services { flex-wrap: wrap; width: 100%; }
+  nav .nav-disclosure[open] { display: contents; }
+  nav .nav-disclosure .submenu-panel { position: static; flex-basis: 100%; width: 100%; min-width: 0; margin-bottom: 10px; padding: 4px 16px; box-shadow: none; border-radius: 12px; }
+}

@@ -262,3 +262,22 @@ footer .mapin-credit {
   letter-spacing: 0;
   line-height: 1.6;
 }
+
+/* Mega hair fica dentro do submenu de Serviços. */
+nav .nav-services { position: relative; display: flex; align-items: center; gap: 2px; }
+nav .nav-disclosure { position: static; border: 0; margin: 0; padding: 0; }
+nav .nav-disclosure > summary { display: grid; place-items: center; width: 36px; min-height: 44px; margin: 0; padding: 0; list-style: none; cursor: pointer; color: #826653; border-radius: 12px; }
+nav .nav-disclosure > summary::-webkit-details-marker { display: none; }
+nav .nav-disclosure > summary::after { content: none; }
+nav .nav-disclosure > summary:hover { background: #eee3da; }
+nav .nav-disclosure > summary:focus-visible { outline: 2px solid #826653; outline-offset: 2px; }
+nav .nav-disclosure[open] > summary span { transform: rotate(180deg); }
+nav .nav-disclosure .submenu-panel { position: absolute; top: 100%; left: 0; z-index: 50; display: flex; flex-direction: column; align-items: stretch; min-width: 195px; padding: 10px 16px; gap: 0; background: #faf6f2; border: 1px solid #e1d4ca; border-radius: 14px; box-shadow: 0 12px 28px #493b3114; }
+nav .nav-disclosure:not([open]) .submenu-panel { display: none; }
+nav .nav-disclosure .submenu-panel a { width: 100%; min-height: 44px; padding: 10px 0; white-space: nowrap; }
+nav .nav-disclosure .submenu-panel a:hover { color: #826653; }
+@media (max-width: 1100px) {
+  nav .nav-services { flex-wrap: wrap; width: 100%; }
+  nav .nav-disclosure[open] { display: contents; }
+  nav .nav-disclosure .submenu-panel { position: static; flex-basis: 100%; width: 100%; min-width: 0; margin-bottom: 10px; padding: 4px 16px; box-shadow: none; border-radius: 12px; }
+}

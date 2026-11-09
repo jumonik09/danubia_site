@@ -1,37 +1,39 @@
 const menu = document.querySelector(".menu");
 const nav = document.querySelector("nav");
-menu.addEventListener("click", () => {
-  const open = menu.getAttribute("aria-expanded") !== "true";
-  menu.setAttribute("aria-expanded", String(open));
-  menu.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
-  nav.classList.toggle("open", open);
-});
-nav.querySelectorAll("a").forEach((link) =>
-  link.addEventListener("click", () => {
+if (menu && nav) {
+  menu.addEventListener("click", () => {
+    const open = menu.getAttribute("aria-expanded") !== "true";
+    menu.setAttribute("aria-expanded", String(open));
+    menu.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+    nav.classList.toggle("open", open);
+  });
+  nav.querySelectorAll("a").forEach((link) =>
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      menu.setAttribute("aria-expanded", "false");
+      menu.setAttribute("aria-label", "Abrir menu");
+    })
+  );
+
+  // Fecha o menu ao sair da navegação ou voltar ao layout de computador.
+  function closeMenu() {
     nav.classList.remove("open");
     menu.setAttribute("aria-expanded", "false");
     menu.setAttribute("aria-label", "Abrir menu");
-  })
-);
-
-// Fecha o menu ao sair da navegação ou voltar ao layout de computador.
-function closeMenu() {
-  nav.classList.remove("open");
-  menu.setAttribute("aria-expanded", "false");
-  menu.setAttribute("aria-label", "Abrir menu");
-}
-menu.setAttribute("aria-controls", "main-navigation");
-nav.id = "main-navigation";
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && menu.getAttribute("aria-expanded") === "true") {
-    closeMenu();
-    menu.focus();
   }
-});
-document.addEventListener("click", (event) => {
-  if (!nav.contains(event.target) && !menu.contains(event.target)) closeMenu();
-});
-window.matchMedia("(min-width: 1101px)").addEventListener("change", closeMenu);
+  menu.setAttribute("aria-controls", "main-navigation");
+  nav.id = "main-navigation";
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && menu.getAttribute("aria-expanded") === "true") {
+      closeMenu();
+      menu.focus();
+    }
+  });
+  document.addEventListener("click", (event) => {
+    if (!nav.contains(event.target) && !menu.contains(event.target)) closeMenu();
+  });
+  window.matchMedia("(min-width: 1101px)").addEventListener("change", closeMenu);
+}
 
 // Entrada suave, uma única vez, sem esconder conteúdo caso a animação não rode.
 (() => {
@@ -90,22 +92,31 @@ window.matchMedia("(min-width: 1101px)").addEventListener("change", closeMenu);
       const track = carousel.querySelector(".photo-track");
       const slides = carousel.querySelectorAll(".photo-slide");
       const pause = carousel.querySelector(".photo-pause");
+      const previous = carousel.querySelector(".photo-prev");
+      const next = carousel.querySelector(".photo-next");
+      const count = carousel.querySelector(".photo-count");
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
       let index = 0;
       let paused = reduced.matches;
       let timer;
-      const render = () => {
+      let hovered = false;
+      let focused = false;
+      if (!track || !pause || !previous || !next || !count || slides.length === 0) return;
+      const render = (animate = true) => {
         track.scrollTo({
           left: index * track.clientWidth,
-          behavior: reduced.matches ? "instant" : "smooth"
+          behavior: !animate || reduced.matches ? "instant" : "smooth"
         });
-        carousel.querySelector(".photo-count").textContent =
+        count.textContent =
           `${index + 1} / ${slides.length}`;
       };
-      const stop = () => clearInterval(timer);
+      const stop = () => {
+        clearInterval(timer);
+        timer = undefined;
+      };
       const start = () => {
         stop();
-        if (!paused && !document.hidden)
+        if (!paused && !document.hidden && !hovered && !focused && slides.length > 1)
           timer = setInterval(() => {
             index = (index + 1) % slides.length;
             render();
@@ -118,12 +129,12 @@ window.matchMedia("(min-width: 1101px)").addEventListener("change", closeMenu);
           paused ? "Iniciar passagem automática" : "Pausar passagem automática"
         );
       };
-      carousel.querySelector(".photo-prev").addEventListener("click", () => {
+      previous.addEventListener("click", () => {
         index = (index - 1 + slides.length) % slides.length;
         render();
         start();
       });
-      carousel.querySelector(".photo-next").addEventListener("click", () => {
+      next.addEventListener("click", () => {
         index = (index + 1) % slides.length;
         render();
         start();
@@ -133,19 +144,21 @@ window.matchMedia("(min-width: 1101px)").addEventListener("change", closeMenu);
         label();
         start();
       });
-      carousel.addEventListener("mouseenter", stop);
-      carousel.addEventListener("mouseleave", start);
-      carousel.addEventListener("focusin", stop);
+      carousel.addEventListener("mouseenter", () => { hovered = true; stop(); });
+      carousel.addEventListener("mouseleave", () => { hovered = false; start(); });
+      carousel.addEventListener("focusin", () => { focused = true; stop(); });
       carousel.addEventListener("focusout", (event) => {
-        if (!carousel.contains(event.relatedTarget)) start();
+        focused = carousel.contains(event.relatedTarget);
+        start();
       });
       document.addEventListener("visibilitychange", start);
-      window.addEventListener("resize", render);
+      window.addEventListener("resize", () => render(false));
       reduced.addEventListener("change", () => {
         paused = reduced.matches;
         label();
         start();
       });
+      render(false);
       label();
       start();
     });
@@ -153,4 +166,32 @@ window.matchMedia("(min-width: 1101px)").addEventListener("change", closeMenu);
   if (document.readyState === "loading")
     document.addEventListener("DOMContentLoaded", initPhotos, { once: true });
   else initPhotos();
+})();
+
+// Fecha o submenu ao navegar, clicar fora ou pressionar Escape.
+(() => {
+  function initSubmenus() {
+    document.querySelectorAll(".nav-disclosure").forEach((details) => {
+      if (details.dataset.submenuReady) return;
+      details.dataset.submenuReady = "true";
+      details.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && details.open) {
+          details.open = false;
+          details.querySelector("summary").focus();
+        }
+      });
+      details.addEventListener("click", (event) => {
+        if (event.target.closest("a")) details.open = false;
+      });
+      document.addEventListener("click", (event) => {
+        if (!details.contains(event.target)) details.open = false;
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") details.open = false;
+      });
+      window.matchMedia("(min-width: 1101px)").addEventListener("change", () => { details.open = false; });
+    });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initSubmenus);
+  else initSubmenus();
 })();

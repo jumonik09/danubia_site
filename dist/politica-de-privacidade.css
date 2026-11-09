@@ -1,0 +1,164 @@
+/* Política de Privacidade: estilos independentes e limitados à página. */
+.danubia-privacidade, .danubia-privacidade * { box-sizing: border-box; }
+.danubia-privacidade { width: 100%; max-width: none !important; margin: 0; background: #faf6f2; color: #211c19; font: 16px/1.8 Arial, sans-serif; }
+.danubia-privacidade > .privacy-header, .danubia-privacidade > .privacy-main, .danubia-privacidade > .privacy-footer { width: 100%; max-width: none !important; margin: 0 !important; }
+.danubia-privacidade a { color: inherit; text-underline-offset: 4px; overflow-wrap: anywhere; }
+.danubia-privacidade a:focus-visible { outline: 2px solid #826653; outline-offset: 4px; }
+.danubia-privacidade .privacy-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; padding: 24px clamp(20px, 5vw, 72px); border-bottom: 1px solid #e1d4ca; font-size: 13px; }
+.danubia-privacidade .privacy-header a { display: inline-flex; align-items: center; min-height: 44px; }
+.danubia-privacidade .privacy-brand { font-size: 12px; letter-spacing: 1.3px; text-decoration: none; }
+.danubia-privacidade .privacy-main { padding: clamp(36px, 6vw, 72px) max(22px, calc((100% - 800px) / 2)); }
+.danubia-privacidade .privacy-eyebrow { color: #695447; font-size: 11px; letter-spacing: 1.8px; }
+.danubia-privacidade h1 { margin: 16px 0; color: #211c19; font: 400 clamp(36px, 5.5vw, 64px)/1.12 Georgia, serif; overflow-wrap: anywhere; }
+.danubia-privacidade h2 { margin: 0 0 16px; color: #211c19; font: 400 clamp(25px, 3vw, 32px)/1.25 Georgia, serif; }
+.danubia-privacidade p { margin: 0 0 18px; }
+.danubia-privacidade .privacy-updated { color: #695447; font-size: 12px; }
+.danubia-privacidade .privacy-intro { font-size: 18px; margin: 28px 0 36px; }
+.danubia-privacidade section { padding: 28px 0 10px; border-top: 1px solid #e1d4ca; }
+.danubia-privacidade .privacy-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; padding: 24px clamp(22px, 5vw, 72px); background: #211c19; color: #faf6f2; font-size: 11px; }
+.danubia-privacidade .privacy-footer a { display: inline-flex; align-items: center; min-height: 44px; }
+.danubia-privacidade .privacy-skip { position: absolute; left: 20px; top: -120px; }
+.danubia-privacidade .privacy-skip:focus { top: 12px; background: #faf6f2; padding: 12px; z-index: 10; }
+@media (max-width: 600px) {
+ .danubia-privacidade .privacy-header, .danubia-privacidade .privacy-footer { flex-direction: column; align-items: flex-start; }
+}
+/* Link discreto nos rodapés existentes, com área de toque acessível. */
+footer a.privacy-link { display: inline-flex; align-items: center; min-height: 44px; max-width: 100%; font-size: 11px; font-weight: 400; letter-spacing: 0; line-height: 1.5; color: inherit; text-decoration: underline; text-decoration-color: #a58e7e; text-underline-offset: 4px; overflow-wrap: anywhere; }
+footer a.privacy-link:hover { text-decoration-thickness: 2px; }
+footer a.privacy-link:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+
+/* CABEÇALHO PADRÃO: mesma navegação em todas as páginas. */
+body header.danubia-header {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 32px;
+  gap: 24px;
+  z-index: 30;
+}
+body header.danubia-header .brand { display: block; flex: 0 1 210px; min-width: 0; }
+body header.danubia-header .brand img { display: block; width: 210px; max-width: 100%; height: auto; }
+body header.danubia-header nav { display: flex; align-items: center; gap: 24px; width: auto; order: 0; }
+body header.danubia-header nav a { display: inline-flex; align-items: center; min-height: 44px; font: 400 12px/1.5 Arial,sans-serif; text-decoration: none; color: inherit; }
+body header.danubia-header > .button { flex: 0 0 auto; margin: 0; order: 0; }
+body header.danubia-header .menu {
+  display: none;
+  position: relative;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  margin: 0 0 0 auto;
+  border: 1px solid #cdb9a9;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: none;
+  color: #493b31;
+  font-size: 0 !important;
+  line-height: 0;
+  cursor: pointer;
+}
+body header.danubia-header .menu::before,
+body header.danubia-header .menu::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 21px;
+  width: 18px;
+  height: 1px;
+  background: currentColor;
+  transform: translateY(-3px);
+  transition: transform .2s ease;
+}
+body header.danubia-header .menu::after { transform: translateY(3px); }
+body header.danubia-header .menu[aria-expanded="true"]::before { transform: rotate(45deg); }
+body header.danubia-header .menu[aria-expanded="true"]::after { transform: rotate(-45deg); }
+body header.danubia-header .menu:hover { background: #eee3da; }
+body header.danubia-header .menu:focus-visible { outline: 2px solid #826653; outline-offset: 4px; }
+@media (max-width: 1100px) {
+  body header.danubia-header { gap: 16px; padding: 16px 28px; }
+  body header.danubia-header .menu { display: block; }
+  body header.danubia-header nav,
+  body header.danubia-header nav:not(.open) { display: none; }
+  body header.danubia-header nav.open {
+    box-sizing: border-box;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 12px 28px 20px;
+    gap: 0;
+    background: #faf6f2;
+    border-top: 1px solid #e1d4ca;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 12px 20px #493b3110;
+  }
+  body header.danubia-header nav a { padding: 10px 0; font-size: 14px; }
+}
+@media (max-width: 600px) {
+  body header.danubia-header { padding: 16px 20px; }
+  body header.danubia-header > .button { display: none !important; }
+  body header.danubia-header .brand { flex-basis: 170px; }
+  body header.danubia-header .brand img { width: 170px; }
+  body header.danubia-header nav.open { padding-inline: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body header.danubia-header .menu::before,
+  body header.danubia-header .menu::after { transition: none; }
+}
+
+/* Agendamento: mesmo botão escuro das páginas de serviços e contato. */
+.danubia-privacidade header.danubia-header > a.button,
+.danubia-privacidade header.danubia-header > a.button:visited {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 48px;
+  padding: 13px 24px;
+  border: 1px solid #211c19;
+  border-radius: 28px;
+  background: #211c19;
+  color: #faf6f2;
+  font: 400 12px/1.8 Arial, sans-serif;
+  text-decoration: none;
+  transition: background-color .2s, border-color .2s;
+}
+.danubia-privacidade header.danubia-header > a.button:hover,
+.danubia-privacidade header.danubia-header > a.button:focus-visible {
+  background: #493b31;
+  border-color: #493b31;
+  color: #faf6f2;
+}
+
+/* Mega hair fica dentro do submenu de Serviços. */
+nav .nav-services { position: relative; display: flex; align-items: center; gap: 2px; }
+nav .nav-disclosure { position: static; border: 0; margin: 0; padding: 0; }
+nav .nav-disclosure > summary { display: grid; place-items: center; width: 36px; min-height: 44px; margin: 0; padding: 0; list-style: none; cursor: pointer; color: #826653; border-radius: 12px; }
+nav .nav-disclosure > summary::-webkit-details-marker { display: none; }
+nav .nav-disclosure > summary::after { content: none; }
+nav .nav-disclosure > summary:hover { background: #eee3da; }
+nav .nav-disclosure > summary:focus-visible { outline: 2px solid #826653; outline-offset: 2px; }
+nav .nav-disclosure[open] > summary span { transform: rotate(180deg); }
+nav .nav-disclosure .submenu-panel { position: absolute; top: 100%; left: 0; z-index: 50; display: flex; flex-direction: column; align-items: stretch; min-width: 195px; padding: 10px 16px; gap: 0; background: #faf6f2; border: 1px solid #e1d4ca; border-radius: 14px; box-shadow: 0 12px 28px #493b3114; }
+nav .nav-disclosure:not([open]) .submenu-panel { display: none; }
+nav .nav-disclosure .submenu-panel a { width: 100%; min-height: 44px; padding: 10px 0; white-space: nowrap; }
+nav .nav-disclosure .submenu-panel a:hover { color: #826653; }
+@media (max-width: 1100px) {
+  nav .nav-services { flex-wrap: wrap; width: 100%; }
+  nav .nav-disclosure[open] { display: contents; }
+  nav .nav-disclosure .submenu-panel { position: static; flex-basis: 100%; width: 100%; min-width: 0; margin-bottom: 10px; padding: 4px 16px; box-shadow: none; border-radius: 12px; }
+}

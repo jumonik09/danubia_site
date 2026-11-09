@@ -27,17 +27,16 @@
           alt="Danúbia Santos — studio de beleza"
         />
       </a>
-      <nav aria-label="Menu principal"
-        ><a href="#inicio">Home</a><a href="servicos.html">Serviços</a
-        ><a href="contato.html">Contato</a></nav
-      ><a
+      <nav id="main-navigation" aria-label="Menu principal"
+        ><a href="#inicio">Home</a><div class="nav-services"><a href="servicos.html">Serviços</a
+        ><details class="nav-disclosure"><summary aria-label="Abrir submenu de Serviços"><span aria-hidden="true">⌄</span></summary><div class="submenu-panel"><a href="servicos.html">Todos os serviços</a><a href="mega-hair.html">Mega hair</a></div></details></div><a href="contato.html">Contato</a></nav><a
         class="button small"
         href="https://www.instagram.com/studiodebelezadanubia/"
         target="_blank"
         rel="noopener"
         >Agende seu horário <span>↗</span></a
       >
-      <button class="menu" aria-label="Abrir menu" aria-expanded="false"
+      <button class="menu" type="button" aria-controls="main-navigation" aria-label="Abrir menu" aria-expanded="false"
         >☰</button
       >
     </header>
@@ -122,8 +121,7 @@
             <div>
               <h3>Cabelos</h3>
               <p class="hair-services"
-                >Cortes feminino, masculino e infantil · Escova · Hidratação<br />Luzes
-                e mechas · Coloração · Mega hair · Penteados</p
+                >Cortes feminino, masculino e infantil · Escova · Hidratação · Luzes e Mechas · Coloração · Mega hair · Penteados</p
               > </div
             ><a
               href="https://wa.me/5531996076469?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20os%20servi%C3%A7os%20de%20cabelo."
@@ -193,6 +191,24 @@
               >↗</a
             ></article
           >
+<article class="service-row">
+            <span class="service-index">06</span>
+            <div>
+              <h3>Design de sobrancelhas</h3>
+              <p>Sobrancelhas desenhadas para valorizar seu olhar.</p>
+            </div>
+            <a href="https://wa.me/5531996076469?text=Ol%C3%A1%21%20Quero%20saber%20mais%20e%20agendar%3A%20Design%20de%20sobrancelhas." target="_blank" rel="noopener" aria-label="Consultar Design de sobrancelhas pelo WhatsApp">↗</a>
+          </article>
+<article class="service-row">
+            <span class="service-index">07</span>
+            <div>
+              <h3>Micropigmentação</h3>
+              <p>Definição e cuidado para realçar sua beleza.</p>
+            </div>
+            <a href="https://wa.me/5531996076469?text=Ol%C3%A1%21%20Quero%20saber%20mais%20e%20agendar%3A%20Micropigmenta%C3%A7%C3%A3o." target="_blank" rel="noopener" aria-label="Consultar Micropigmentação pelo WhatsApp">↗</a>
+          </article>
+<article class="service-row service-mega"><span class="service-index">08</span><div><h3><a href="mega-hair.html">Mega hair</a></h3><p>Alongamento, volume e preenchimento de pontas.</p></div><a href="mega-hair.html" aria-label="Conhecer o serviço de mega hair">↗</a></article>
+
         </div>
         <div class="services-bottom"
           ><span>UM MOMENTO SEU. UM CUIDADO ESPECIAL.</span
@@ -206,6 +222,15 @@
         >
       </section>
 
+      <section class="review-section section" id="avaliacao" aria-labelledby="review-title">
+        <div class="review-card">
+          <p class="eyebrow">SUA EXPERIÊNCIA INSPIRA</p>
+          <h2 id="review-title">Seu carinho faz parte<br />da nossa <em>história.</em></h2>
+          <p class="review-copy">Como foi seu momento de cuidado por aqui? Compartilhe sua experiência e ajude outras pessoas a conhecer o nosso espaço.</p>
+          <a class="button review-button" href="https://g.page/r/CVWn8IeScL-wEBM/review" target="_blank" rel="noopener noreferrer">Avalie no Google <span aria-hidden="true">↗</span></a>
+          <p class="review-caption">Sua opinião é especial para nós.</p>
+        </div>
+      </section>
       <section
         class="gallery section"
         id="fotos"
@@ -250,7 +275,7 @@
           <div class="photo-controls"
             ><button type="button" class="photo-prev" aria-label="Foto anterior"
               >←</button
-            ><span class="photo-count">1 / 3</span
+            ><span class="photo-count" role="status" aria-live="polite" aria-atomic="true">1 / 3</span
             ><button type="button" class="photo-next" aria-label="Próxima foto"
               >→</button
             ><button
@@ -309,7 +334,7 @@
             >Conheça nosso Instagram <span>↗</span></a
           ></p
         >
-        <div class="contact-grid">
+<div class="contact-grid">
           <div
             ><span class="eyebrow">VENHA NOS VISITAR</span>
             <p>Rua Grão Mogol, 1227 e 1231<br />Sion · Belo Horizonte, MG</p

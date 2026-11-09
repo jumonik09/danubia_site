@@ -87,3 +87,31 @@
     animations.clear();
   });
 })();
+
+// Fecha o submenu ao navegar, clicar fora ou pressionar Escape.
+(() => {
+  function initSubmenus() {
+    document.querySelectorAll(".nav-disclosure").forEach((details) => {
+      if (details.dataset.submenuReady) return;
+      details.dataset.submenuReady = "true";
+      details.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && details.open) {
+          details.open = false;
+          details.querySelector("summary").focus();
+        }
+      });
+      details.addEventListener("click", (event) => {
+        if (event.target.closest("a")) details.open = false;
+      });
+      document.addEventListener("click", (event) => {
+        if (!details.contains(event.target)) details.open = false;
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") details.open = false;
+      });
+      window.matchMedia("(min-width: 1101px)").addEventListener("change", () => { details.open = false; });
+    });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initSubmenus);
+  else initSubmenus();
+})();

@@ -1,0 +1,315 @@
+/*
+ * MEGA HAIR — Danúbia Santos Studio
+ * Estilos completos, limitados a .danubia-mega-hair.
+ * Ordem: base; navegação; conteúdo; efeitos; telas menores.
+ * Não depende do CSS da página Serviços.
+ */
+
+/* 1. Identidade e base */
+.danubia-mega-hair {
+  --paper: #faf6f2;
+  --ink: #211c19;
+  --muted: #786b62;
+  --accent: #826653;
+  --line: #e1d4ca;
+  --nude: #eee3da;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 14px/1.85 Manrope, Arial, sans-serif;
+  container: mega-page / inline-size;
+}
+.danubia-mega-hair *,
+.danubia-mega-hair *::before,
+.danubia-mega-hair *::after { box-sizing: border-box; }
+.danubia-mega-hair a { color: inherit; text-decoration: none; }
+.danubia-mega-hair button { color: inherit; font: inherit; cursor: pointer; }
+.danubia-mega-hair a,
+.danubia-mega-hair button,
+.danubia-mega-hair summary { -webkit-tap-highlight-color: transparent; }
+.danubia-mega-hair :is(a, button, summary):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+.danubia-mega-hair main { display: block; width: 100%; max-width: none; margin: 0; padding: 0; }
+.danubia-mega-hair .wrap {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 56px clamp(20px, 4vw, 32px);
+}
+.danubia-mega-hair :is(h1, h2, h3) {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+.danubia-mega-hair h1 { font-size: clamp(48px, 7cqi, 80px); }
+.danubia-mega-hair h2 { font-size: clamp(32px, 4.2cqi, 44px); }
+.danubia-mega-hair h3 { font-size: 32px; }
+.danubia-mega-hair :is(h1, h2, h3, p, li, address) { overflow-wrap: anywhere; }
+.danubia-mega-hair em { color: var(--accent); font-weight: 400; }
+.danubia-mega-hair p { margin: 0 0 16px; }
+.danubia-mega-hair .eyebrow {
+  margin: 0 0 18px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.8;
+  letter-spacing: 1.6px;
+}
+.danubia-mega-hair .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 48px;
+  max-width: 100%;
+  padding: 13px 24px;
+  border: 1px solid var(--ink);
+  border-radius: 28px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: center;
+  white-space: normal;
+  transition: background-color .2s ease, box-shadow .2s ease;
+}
+.danubia-mega-hair .button > span { flex-shrink: 0; transition: transform .2s ease; }
+.danubia-mega-hair .text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  max-width: 100%;
+  border-bottom: 1px solid #bda28f;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.danubia-mega-hair .skip { position: absolute; top: -100px; }
+.danubia-mega-hair .skip:focus { top: 8px; left: 12px; z-index: 100; padding: 12px; background: var(--paper); }
+
+/* 2. Cabeçalho e submenu Serviços */
+.danubia-mega-hair header.danubia-header {
+  position: relative;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 32px;
+}
+.danubia-mega-hair header.danubia-header .brand { flex: 0 1 210px; min-width: 0; }
+.danubia-mega-hair header.danubia-header .brand img { display: block; width: 210px; max-width: 100%; height: auto; }
+.danubia-mega-hair header.danubia-header > .button { flex-shrink: 0; margin: 0; }
+.danubia-mega-hair header.danubia-header nav { display: flex; align-items: center; gap: 24px; width: auto; }
+.danubia-mega-hair header.danubia-header nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 0; font: 400 12px/1.5 Arial, sans-serif; }
+.danubia-mega-hair header.danubia-header nav a[aria-current] { color: var(--accent); }
+.danubia-mega-hair .nav-services { position: relative; display: flex; align-items: center; gap: 2px; }
+.danubia-mega-hair .nav-disclosure { position: static; margin: 0; padding: 0; border: 0; }
+.danubia-mega-hair .nav-disclosure summary { display: grid; place-items: center; width: 36px; min-height: 44px; border-radius: 12px; color: var(--accent); list-style: none; cursor: pointer; }
+.danubia-mega-hair .nav-disclosure summary::-webkit-details-marker { display: none; }
+.danubia-mega-hair .nav-disclosure[open] summary span { transform: rotate(180deg); }
+.danubia-mega-hair .submenu-panel { position: absolute; top: 100%; left: 0; z-index: 40; display: flex; flex-direction: column; min-width: 195px; padding: 8px 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); box-shadow: 0 12px 28px #493b3114; }
+.danubia-mega-hair .nav-disclosure:not([open]) .submenu-panel { display: none; }
+.danubia-mega-hair .submenu-panel a { width: 100%; white-space: normal; }
+.danubia-mega-hair header.danubia-header .menu { position: relative; display: none; flex: 0 0 44px; width: 44px; height: 44px; padding: 0; border: 1px solid #cdb9a9; border-radius: 50%; background: transparent; font-size: 0; }
+.danubia-mega-hair .menu::before,
+.danubia-mega-hair .menu::after { content: ""; position: absolute; top: 21px; left: 12px; width: 18px; height: 1px; background: var(--accent); transform: translateY(-3px); transition: transform .2s ease; }
+.danubia-mega-hair .menu::after { transform: translateY(3px); }
+.danubia-mega-hair .menu[aria-expanded="true"]::before { transform: rotate(45deg); }
+.danubia-mega-hair .menu[aria-expanded="true"]::after { transform: rotate(-45deg); }
+
+/* 3. Apresentação e foto única — proporção original preservada */
+.danubia-mega-hair .hero { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; gap: 48px; padding-top: 36px; padding-bottom: 72px; }
+.danubia-mega-hair .hero > * { min-width: 0; }
+.danubia-mega-hair .hero .eyebrow { font-size: 11px; }
+.danubia-mega-hair .intro { max-width: 43ch; margin: 22px 0 0; color: var(--muted); font-size: 15px; }
+.danubia-mega-hair .hero-booking { margin-top: 28px; min-height: 52px; font-size: 13px; }
+.danubia-mega-hair .mega-hero-photo { width: 100%; max-width: 520px; margin: 0 auto; padding: 10px; border: 1px solid var(--line); border-radius: 24px; background: #ffffff55; box-shadow: 0 10px 32px #493b3108; }
+.danubia-mega-hair .mega-hero-photo img { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1600 / 1189; object-fit: contain; border-radius: 16px; transform-origin: center; transition: transform .55s cubic-bezier(.2,.65,.3,1), box-shadow .55s ease; }
+.danubia-mega-hair .mega-hero-photo figcaption { padding: 14px 5px 5px; color: var(--muted); font-size: 11px; line-height: 1.7; }
+.danubia-mega-hair .mega-hero-photo figcaption strong { display: block; margin-bottom: 3px; color: var(--accent); font-weight: 500; }
+
+/* 4. Conteúdo e etapas */
+.danubia-mega-hair .section-heading { margin-bottom: 30px; }
+.danubia-mega-hair .mega-about,
+.danubia-mega-hair .mega-care { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 56px; }
+.danubia-mega-hair .mega-about { border-top: 1px solid var(--line); }
+.danubia-mega-hair .mega-copy { color: var(--muted); }
+.danubia-mega-hair .mega-copy p:last-child { margin-bottom: 0; }
+.danubia-mega-hair .mega-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.danubia-mega-hair .mega-card { min-width: 0; padding: 28px; border: 1px solid var(--line); border-radius: 24px; background: #f5eee8; transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.danubia-mega-hair .mega-number { display: block; margin-bottom: 28px; color: var(--accent); font-size: 11px; letter-spacing: 2px; }
+.danubia-mega-hair .mega-card p { margin: 16px 0 0; color: var(--muted); }
+.danubia-mega-hair .mega-care { width: calc(100% - 64px); max-width: 1056px; margin: 16px auto; padding: 44px 36px; border: 1px solid #dfcfc1; border-radius: 28px; background: var(--nude); }
+.danubia-mega-hair .mega-care p { margin: 20px 0 0; color: var(--muted); }
+.danubia-mega-hair .mega-care-list { margin: 0; padding: 0; list-style: none; }
+.danubia-mega-hair .mega-care-list li { padding: 15px 0; border-bottom: 1px solid #d8c8bb; }
+.danubia-mega-hair .mega-care-list li:first-child { padding-top: 0; }
+.danubia-mega-hair .mega-care-list li:last-child { padding-bottom: 0; border-bottom: 0; }
+
+/* 5. Dúvidas e convite */
+.danubia-mega-hair .mega-faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; padding-top: 64px; }
+.danubia-mega-hair .mega-questions { min-width: 0; border-top: 1px solid var(--line); }
+.danubia-mega-hair .mega-faq details { border-bottom: 1px solid var(--line); }
+.danubia-mega-hair .mega-faq summary { position: relative; min-height: 48px; padding: 20px 32px 20px 0; font-weight: 500; list-style: none; cursor: pointer; overflow-wrap: anywhere; transition: color .2s ease; }
+.danubia-mega-hair .mega-faq summary::-webkit-details-marker { display: none; }
+.danubia-mega-hair .mega-faq summary::after { content: "+"; position: absolute; top: 16px; right: 2px; color: var(--accent); font-size: 24px; font-weight: 400; }
+.danubia-mega-hair .mega-faq details[open] summary::after { content: "−"; }
+.danubia-mega-hair .mega-faq details[open] summary { color: var(--accent); }
+.danubia-mega-hair .mega-faq details p { margin: 0 0 22px; color: var(--muted); }
+.danubia-mega-hair .mega-invite { padding-top: 40px; padding-bottom: 72px; text-align: center; }
+.danubia-mega-hair .mega-invite p:not(.eyebrow) { margin: 20px 0 24px; color: var(--muted); }
+
+/* 6. Contatos e rodapé */
+.danubia-mega-hair .contact-grid { display: grid; grid-template-columns: 1.1fr .8fr 1.1fr; gap: 32px; padding-block: 36px; border-top: 1px solid var(--line); }
+.danubia-mega-hair .contact-grid > * { min-width: 0; }
+.danubia-mega-hair .contact-grid .eyebrow { margin-bottom: 10px; }
+.danubia-mega-hair address { color: var(--muted); font-style: normal; }
+.danubia-mega-hair footer.danubia-footer {
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+.danubia-mega-hair footer.danubia-footer .footer-brand { font-size: 11px; letter-spacing: 1.3px; }
+.danubia-mega-hair footer.danubia-footer a { display: inline-flex; align-items: center; min-height: 44px; }
+
+.danubia-mega-hair footer.danubia-footer {
+  box-sizing: border-box;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: auto !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 24px clamp(22px, 4vw, 64px) !important;
+  gap: 16px 28px !important;
+}
+.danubia-mega-hair footer.danubia-footer > * {
+  min-width: 0;
+  max-width: 100%;
+  grid-column: auto !important;
+  overflow-wrap: anywhere;
+}
+.danubia-mega-hair footer.danubia-footer > .footer-brand { justify-self: start; }
+.danubia-mega-hair footer.danubia-footer > a { justify-self: end; }
+.danubia-mega-hair footer.danubia-footer > .footer-credits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+.danubia-mega-hair footer.danubia-footer .footer-credits > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  white-space: normal;
+  text-align: center;
+}
+.danubia-mega-hair footer.danubia-footer .footer-credits > .privacy-link {
+  font-size: 10px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: #a58e7e;
+}
+
+/* 7. Movimento discreto, somente em dispositivos com mouse */
+@media (hover: hover) and (pointer: fine) {
+  .danubia-mega-hair .button:hover { background: #493b31; box-shadow: 0 6px 18px #493b3110; }
+  .danubia-mega-hair .button:hover > span { transform: translate(2px, -2px); }
+  .danubia-mega-hair .mega-card:hover { transform: translateY(-3px); border-color: #bda28f; box-shadow: 0 8px 22px #493b310b; }
+  .danubia-mega-hair .mega-hero-photo:hover img { transform: translateY(-2px) scale(1.012); box-shadow: 0 12px 28px #493b311c; }
+  .danubia-mega-hair .mega-faq summary:hover,
+  .danubia-mega-hair header.danubia-header nav a:hover { color: var(--accent); }
+  .danubia-mega-hair .nav-disclosure summary:hover { background: var(--nude); }
+}
+
+/* 8. Telas menores e contêineres estreitos do WordPress.
+ * Media queries são fallback; container queries consideram a largura do bloco.
+ */
+@media (max-width: 1100px) {
+  .danubia-mega-hair header.danubia-header { flex-wrap: wrap; gap: 16px; padding: 16px 24px; }
+  .danubia-mega-hair header.danubia-header > .button { display: none; }
+  .danubia-mega-hair header.danubia-header nav { width: 100%; flex-wrap: wrap; order: 3; }
+  .danubia-mega-hair.is-ready header.danubia-header { flex-wrap: nowrap; }
+  .danubia-mega-hair.is-ready header.danubia-header .menu { display: block; }
+  .danubia-mega-hair.is-ready header.danubia-header nav:not(.open) { display: none; }
+  .danubia-mega-hair.is-ready header.danubia-header nav.open { position: absolute; top: 100%; left: 0; right: 0; display: flex; flex-direction: column; align-items: stretch; padding: 12px 24px 20px; gap: 0; border-top: 1px solid var(--line); border-radius: 0 0 20px 20px; background: var(--paper); box-shadow: 0 12px 20px #493b3110; }
+  .danubia-mega-hair .nav-services { flex-wrap: wrap; width: 100%; }
+  .danubia-mega-hair .nav-disclosure[open] { display: contents; }
+  .danubia-mega-hair .submenu-panel { position: static; width: 100%; flex-basis: 100%; margin-bottom: 10px; box-shadow: none; }
+}
+@container mega-page (max-width: 1100px) {
+  .danubia-mega-hair header.danubia-header { flex-wrap: wrap; gap: 16px; padding: 16px 24px; }
+  .danubia-mega-hair header.danubia-header > .button { display: none; }
+  .danubia-mega-hair header.danubia-header nav { width: 100%; flex-wrap: wrap; order: 3; }
+  .danubia-mega-hair.is-ready header.danubia-header { flex-wrap: nowrap; }
+  .danubia-mega-hair.is-ready header.danubia-header .menu { display: block; }
+  .danubia-mega-hair.is-ready header.danubia-header nav:not(.open) { display: none; }
+  .danubia-mega-hair.is-ready header.danubia-header nav.open { position: absolute; top: 100%; left: 0; right: 0; display: flex; flex-direction: column; align-items: stretch; padding: 12px 24px 20px; gap: 0; border-top: 1px solid var(--line); border-radius: 0 0 20px 20px; background: var(--paper); box-shadow: 0 12px 20px #493b3110; }
+  .danubia-mega-hair .nav-services { flex-wrap: wrap; width: 100%; }
+  .danubia-mega-hair .nav-disclosure[open] { display: contents; }
+  .danubia-mega-hair .submenu-panel { position: static; width: 100%; flex-basis: 100%; margin-bottom: 10px; box-shadow: none; }
+}
+@media (max-width: 900px) {
+  .danubia-mega-hair .hero, .danubia-mega-hair .mega-about, .danubia-mega-hair .mega-care, .danubia-mega-hair .mega-steps, .danubia-mega-hair .mega-faq, .danubia-mega-hair .contact-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .danubia-mega-hair .mega-faq .section-heading { margin-bottom: 0; }
+  .danubia-mega-hair footer.danubia-footer { grid-template-columns: minmax(0, 1fr) !important; justify-items: center; text-align: center; gap: 12px !important; }
+  .danubia-mega-hair footer.danubia-footer > * { justify-self: center !important; }
+}
+@container mega-page (max-width: 900px) {
+  .danubia-mega-hair .hero, .danubia-mega-hair .mega-about, .danubia-mega-hair .mega-care, .danubia-mega-hair .mega-steps, .danubia-mega-hair .mega-faq, .danubia-mega-hair .contact-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .danubia-mega-hair .mega-faq .section-heading { margin-bottom: 0; }
+  .danubia-mega-hair footer.danubia-footer { grid-template-columns: minmax(0, 1fr) !important; justify-items: center; text-align: center; gap: 12px !important; }
+  .danubia-mega-hair footer.danubia-footer > * { justify-self: center !important; }
+}
+@media (max-width: 600px) {
+  .danubia-mega-hair .wrap { padding: 36px 20px; }
+  .danubia-mega-hair .hero { padding-top: 20px; padding-bottom: 44px; gap: 30px; }
+  .danubia-mega-hair .intro { font-size: 14px; }
+  .danubia-mega-hair .hero-booking { padding-inline: 20px; gap: 12px; }
+  .danubia-mega-hair .mega-number { margin-bottom: 18px; }
+  .danubia-mega-hair .mega-care { width: calc(100% - 40px); padding: 28px 24px; border-radius: 24px; }
+  .danubia-mega-hair .mega-hero-photo { padding: 8px; border-radius: 22px; }
+  .danubia-mega-hair header.danubia-header { padding-inline: 20px; gap: 12px; }
+  .danubia-mega-hair header.danubia-header .brand { flex-basis: 170px; max-width: calc(100% - 56px); }
+}
+@container mega-page (max-width: 600px) {
+  .danubia-mega-hair .wrap { padding: 36px 20px; }
+  .danubia-mega-hair .hero { padding-top: 20px; padding-bottom: 44px; gap: 30px; }
+  .danubia-mega-hair .intro { font-size: 14px; }
+  .danubia-mega-hair .hero-booking { padding-inline: 20px; gap: 12px; }
+  .danubia-mega-hair .mega-number { margin-bottom: 18px; }
+  .danubia-mega-hair .mega-care { width: calc(100% - 40px); padding: 28px 24px; border-radius: 24px; }
+  .danubia-mega-hair .mega-hero-photo { padding: 8px; border-radius: 22px; }
+  .danubia-mega-hair header.danubia-header { padding-inline: 20px; gap: 12px; }
+  .danubia-mega-hair header.danubia-header .brand { flex-basis: 170px; max-width: calc(100% - 56px); }
+}
+
+/* CSS e JavaScript respeitam a preferência de reduzir movimentos. */
+@media (prefers-reduced-motion: reduce) {
+  .danubia-mega-hair *, .danubia-mega-hair *::before, .danubia-mega-hair *::after { transition: none; }
+  .danubia-mega-hair .mega-hero-photo:hover img, .danubia-mega-hair .mega-card:hover, .danubia-mega-hair .button:hover > span { transform: none; }
+}
