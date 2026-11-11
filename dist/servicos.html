@@ -22,49 +22,33 @@
   ></head>
   <body
     ><a class="skip" href="#conteudo">Ir para o conteúdo</a
-    ><header class="danubia-header"><a
-        class="brand"
-        href="index.html"
-        aria-label="Espaço Danúbia Santos, início"
+    ><header class="danubia-header">
+      <a class="brand" href="index.html" aria-label="Espaço Danúbia Santos, início"
         ><img
           src="assets/logo-transparente.png"
-          alt="Espaço Danúbia Santos" /></a
-      ><nav id="main-navigation" aria-label="Menu principal">
-        <a href="index.html">
-          Home
-        </a>
-        <div class="nav-services">
-          <details class="nav-disclosure">
-            <summary aria-label="Ver opções de Serviços">
-              <span class="services-label">Serviços</span>
+          alt="Danúbia Santos — studio de beleza"
+        />
+      </a>
+      <nav id="main-navigation" aria-label="Menu principal"
+        ><a href="index.html">Home</a><div class="nav-services">
+          <details class="nav-disclosure"><summary aria-label="Ver opções de Serviços">
+              <a class="services-label" href="servicos.html">Serviços</a>
               <span class="submenu-chevron" aria-hidden="true">⌄</span>
-            </summary>
-            <div class="submenu-panel">
-              <a href="servicos.html#servicos" aria-current="page" class="submenu-link" aria-label="Abrir todos os serviços"><span>Todos os serviços</span><span aria-hidden="true">↗</span></a>
-              <a href="mega-hair.html">
-                Mega hair
-              </a>
-            </div>
-          </details>
-        </div>
-        <a href="contato.html">
-          Contato
-        </a>
-      </nav><a
-        class="button"
+            </summary><div class="submenu-panel">
+              <a class="submenu-link" href="servicos.html#servicos"><span>Todos Serviços</span><span aria-hidden="true">↗</span></a>
+              <a class="submenu-link submenu-featured" href="https://espacodanubiasantos.com.br/mega-hair/"><span>Mega Hair</span><span aria-hidden="true">↗</span></a>
+            </div></details>
+        </div><a href="contato.html">Contato</a></nav><a
+        class="button small"
         href="https://wa.me/5531996076469"
         target="_blank"
         rel="noopener"
-        >Agende seu horário <span aria-hidden="true">↗</span></a
-      ><button
-        class="menu"
-        type="button"
-        aria-label="Abrir menu"
-        aria-expanded="false"
-        aria-controls="main-navigation"
+        >Agende seu horário <span>↗</span></a
+      >
+      <button class="menu" type="button" aria-controls="main-navigation" aria-label="Abrir menu" aria-expanded="false"
         >☰</button
-      ></header
-    >
+      >
+    </header>
     <main id="conteudo"
       ><section class="hero wrap"
         ><div
@@ -97,8 +81,9 @@
           ><h2 id="services-title">Escolha seu <em>cuidado.</em></h2></div
         ><div class="service-grid"
           >
-<article class="service service-mega"><div><h3><a href="mega-hair.html">Mega hair</a></h3><a class="text-link" href="mega-hair.html" aria-label="Conhecer o serviço de mega hair"><span aria-hidden="true">↗</span></a></div><p>Alongamento, volume e preenchimento de pontas. Conheça as possibilidades para o seu cabelo.</p></article>
-<article class="service service-hair"
+<article id="mega-hair" class="service service-mega"><div><h3><a href="mega-hair.html">Mega hair</a></h3><a class="text-link" href="mega-hair.html" aria-label="Conhecer o serviço de mega hair"><span aria-hidden="true">↗</span></a></div><p>Alongamento, volume e preenchimento de pontas. Conheça as possibilidades para o seu cabelo.</p>
+<a class="button mega-services-button" href="https://espacodanubiasantos.com.br/mega-hair/">Conheça nossos serviços de MEGA HAIR <span aria-hidden="true">↗</span></a></article>
+<article id="cabelos" class="service service-hair"
             ><div
               ><h3>Cabelos</h3
               ><a
@@ -110,18 +95,18 @@
                 ><span aria-hidden="true">↗</span></a
               ></div
             ><ul class="hair-list" aria-label="Serviços de cabelo"
-              ><li>Corte feminino</li
-              ><li>Corte masculino</li
-              ><li>Corte infantil</li
-              ><li>Escova</li
-              ><li>Hidratação</li
-              ><li>Luzes e mechas</li
-              ><li>Coloração</li
+              ><li id="corte-feminino">Corte feminino</li
+              ><li id="corte-masculino">Corte masculino</li
+              ><li id="corte-infantil">Corte infantil</li
+              ><li id="escova">Escova</li
+              ><li id="hidratacao">Hidratação</li
+              ><li id="luzes-e-mechas">Luzes e mechas</li
+              ><li id="coloracao">Coloração</li
               ><li><a href="mega-hair.html">Mega hair ↗</a></li
-              ><li>Penteados</li></ul
+              ><li id="penteados">Penteados</li></ul
             ></article
           >
-          <article class="service"
+          <article id="maquiagem" class="service"
             ><div
               ><h3>Maquiagem</h3
               ><a
@@ -134,7 +119,7 @@
               ></div
             ></article
           >
-          <article class="service"
+          <article id="manicure-pedicure" class="service"
             ><div
               ><h3>Manicure & Pedicure</h3
               ><a
@@ -147,7 +132,7 @@
               ></div
             ></article
           >
-          <article class="service"
+          <article id="estetica-depilacao" class="service"
             ><div
               ><h3>Estética & Depilação</h3
               ><a
@@ -160,7 +145,7 @@
               ></div
             ></article
           >
-          <article class="service"
+          <article id="podologia" class="service"
             ><div
               ><h3>Podologia</h3
               ><a
@@ -173,13 +158,13 @@
               ></div
             ></article
           >
-<article class="service">
+<article class="service" id="design-de-sobrancelhas">
             <div>
               <h3>Design de sobrancelhas</h3>
               <a class="text-link" href="https://wa.me/5531996076469?text=Ol%C3%A1%21%20Quero%20saber%20mais%20e%20agendar%3A%20Design%20de%20sobrancelhas." target="_blank" rel="noopener" aria-label="Consultar Design de sobrancelhas pelo WhatsApp"><span aria-hidden="true">↗</span></a>
             </div>
           </article>
-<article class="service">
+<article class="service" id="micropigmentacao">
             <div>
               <h3>Micropigmentação</h3>
               <a class="text-link" href="https://wa.me/5531996076469?text=Ol%C3%A1%21%20Quero%20saber%20mais%20e%20agendar%3A%20Micropigmenta%C3%A7%C3%A3o." target="_blank" rel="noopener" aria-label="Consultar Micropigmentação pelo WhatsApp"><span aria-hidden="true">↗</span></a>
